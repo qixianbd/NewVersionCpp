@@ -27,25 +27,34 @@ void init(int id){
 	io_lock.unlock();
 	initable = true;
 }
-
+/**
+ *
+ * @param threadId
+ */
 void initOnlyOnce(int threadId){
-	if(initable == false){
-		bool ret = init_lock.try_lock_for(chrono::milliseconds(20));
-		if(ret == true)
-//		init_lock.lock();
-		{
-			if(initable == false){
+	if(initable == false){									// The first test
+			init_lock.lock();
+			if(initable == false){							// The second test.
 				this_thread::sleep_for(chrono::milliseconds(50));
 				init(threadId);
 				init_lock.unlock();
 			}
-		}
-		else{
-			io_lock.lock();
-			std::cout << "This thread (id =  " << threadId << ") Could not hold the init lock" << std::endl;
-			io_lock.unlock();
-		}
-
+			else{
+				/*
+				 * This branch denote the need for the second checks.
+				* If the init thread(which really do the init) hold a lock for a long time, and the other threads have already past the fist test(initable == false) at the time
+				* the init thread sleep, then we will need for the second check of variable initable.
+				 */
+				init_lock.unlock();
+				io_lock.lock();
+				std::cout << "This thread (id =  " << threadId << ") get the init lock, but other threads do the init." << std::endl;
+				io_lock.unlock();
+			}
+	}
+	else{
+		io_lock.lock();
+		std::cout << "For the thread (id =  " << threadId << "), the initable bool value have already be true." << std::endl;
+		io_lock.unlock();
 	}
 
 	io_lock.lock();
