@@ -35,11 +35,10 @@ void initOnlyOnce(int threadId){
 //		init_lock.lock();
 		{
 			if(initable == false){
+				this_thread::sleep_for(chrono::milliseconds(50));
 				init(threadId);
+				init_lock.unlock();
 			}
-			this_thread::sleep_for(chrono::milliseconds(50));
-
-			init_lock.unlock();
 		}
 		else{
 			io_lock.lock();
