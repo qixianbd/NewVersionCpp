@@ -4,7 +4,6 @@
  *  Created on: 2014年11月15日
  *      Author: keyming
  */
-
 #include <atomic>
 #include <thread>
 #include <vector>
