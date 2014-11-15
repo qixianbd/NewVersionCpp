@@ -5,27 +5,24 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CC_SRCS += \
 ../DoubleLock.cc \
-../Logger.cc \
 ../Test_Atomic.cc \
 ../Test_Thread.cc \
 ../Test_Thread_Mutex.cc \
-../main.cc 
+../Test_Time_Mutex.cc 
 
 OBJS += \
 ./DoubleLock.o \
-./Logger.o \
 ./Test_Atomic.o \
 ./Test_Thread.o \
 ./Test_Thread_Mutex.o \
-./main.o 
+./Test_Time_Mutex.o 
 
 CC_DEPS += \
 ./DoubleLock.d \
-./Logger.d \
 ./Test_Atomic.d \
 ./Test_Thread.d \
 ./Test_Thread_Mutex.d \
-./main.d 
+./Test_Time_Mutex.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
