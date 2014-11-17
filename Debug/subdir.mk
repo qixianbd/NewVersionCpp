@@ -14,6 +14,7 @@ CC_SRCS += \
 ../Test_Thread.cc \
 ../Test_Thread_Mutex.cc \
 ../Test_Time_Mutex.cc \
+../ThreadExecuteWithSequence.cc \
 ../Utility.cc 
 
 OBJS += \
@@ -27,6 +28,7 @@ OBJS += \
 ./Test_Thread.o \
 ./Test_Thread_Mutex.o \
 ./Test_Time_Mutex.o \
+./ThreadExecuteWithSequence.o \
 ./Utility.o 
 
 CC_DEPS += \
@@ -40,6 +42,7 @@ CC_DEPS += \
 ./Test_Thread.d \
 ./Test_Thread_Mutex.d \
 ./Test_Time_Mutex.d \
+./ThreadExecuteWithSequence.d \
 ./Utility.d 
 
 

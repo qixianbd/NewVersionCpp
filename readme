@@ -1,0 +1,8 @@
+This project mainly writen with c++11. 
+
+THREADEXECUTEWITHSEQUENCE.cc
+		Create three thread groups, (firstGroup, secondGroup, thirdGroup) and control to make them execute with a particular sequence,
+		e.h, 1 --> 2 --> 3. 
+		
+
+

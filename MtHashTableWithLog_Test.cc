@@ -19,7 +19,7 @@
 #include "Random.h"
 using namespace boost;
 
-
+#ifdef MTHASHTABLEWITHLOG_CC
 static boost::mutex mu_io;
 static void searchData(MtHashTable& ht){
 	Random r;
@@ -105,7 +105,7 @@ int main()
 	}
 	return 0;
 }
-
+#endif
 
 
 
