@@ -16,27 +16,41 @@
 using namespace std;
 typedef long long llong;
 
-//#define COMPUTEMATHWITHMULTITHREAD_CC
-#ifdef COMPUTEMATHWITHMULTITHREAD_CC
-void calPowSum(int n, atomic<llong>& result){
+#define COMPUTEMATHMT2_CC
+#ifdef COMPUTEMATHMT2_CC
+
+enum {ThreadNumbers = 1};
+
+void calPowSum(int nth, int totalNum,  atomic<llong>& result){
 	llong sum = 0;
-	for(int i = 0; i <= n; i++){
-		sum+= pow(i, 3);
+	int block = totalNum/ThreadNumbers;
+	int beg = nth*block;
+
+	if(nth != ThreadNumbers -1){
+		for(int i = 1; i <= block; i++){
+			sum+= pow(beg+i, 3);
+		}
+	}
+	else{
+		for(int i = 1; i <= totalNum - block* (ThreadNumbers-1); i++){
+			sum+= pow(beg+i, 3);
+		}
 	}
 	result.fetch_add(sum);
+
 }
 
 int main()
 {
-	enum {ThreadNumbers = 100};
 	cerr.sync_with_stdio(true);
 
 
 	atomic<llong> result(0);
 	vector<thread> worktThreads;
 
+	int n = 100123;
 	for(int i = 0; i < ThreadNumbers; i++){
-		worktThreads.push_back(thread(calPowSum, i, ref(result)));
+		worktThreads.push_back(thread(calPowSum, i, n, ref(result)));
 	}
 	for(int i = 0; i < ThreadNumbers; i++){
 		worktThreads[i].join();
@@ -45,3 +59,8 @@ int main()
 	return 0;
 }
 #endif
+
+
+
+
+
