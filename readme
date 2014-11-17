@@ -5,4 +5,8 @@ THREADEXECUTEWITHSEQUENCE.cc
 		e.h, 1 --> 2 --> 3. 
 		
 
+ComputeMathWithMultithread.cc
+		compute the math problem with multithreads.  result = 1^3 + (1^3 + 2^3)  + (1^3 + 2^3 + 3^3) + ... + (1^3 + 2^3 + ... + 100^3)
 
+		
+	

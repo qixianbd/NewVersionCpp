@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CC_SRCS += \
 ../BackLogger.cc \
+../ComputeMathWithMultithread.cc \
 ../DoubleLock.cc \
 ../MtHashTableWithLog.cc \
 ../MtHashTableWithLog_Test.cc \
@@ -19,6 +20,7 @@ CC_SRCS += \
 
 OBJS += \
 ./BackLogger.o \
+./ComputeMathWithMultithread.o \
 ./DoubleLock.o \
 ./MtHashTableWithLog.o \
 ./MtHashTableWithLog_Test.o \
@@ -33,6 +35,7 @@ OBJS += \
 
 CC_DEPS += \
 ./BackLogger.d \
+./ComputeMathWithMultithread.d \
 ./DoubleLock.d \
 ./MtHashTableWithLog.d \
 ./MtHashTableWithLog_Test.d \

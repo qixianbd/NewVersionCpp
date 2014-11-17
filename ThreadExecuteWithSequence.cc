@@ -14,7 +14,8 @@
 
 using namespace std;
 
-
+//#define THREADEXECUTEWITHSEQUENCE_CC
+#ifdef THREADEXECUTEWITHSEQUENCE_CC
 mutex seqLock;
 condition_variable_any cvy;
 int seqNum = 1;
@@ -80,8 +81,7 @@ void thirdThreadGroup(int threadId, atomic<int>& fcounts){
 	return ;
 }
 
-#define THREADEXECUTEWITHSEQUENCE_CC
-#ifdef THREADEXECUTEWITHSEQUENCE_CC
+
 int main()
 {
 	enum {ThreadNumbers = 100};
@@ -89,7 +89,7 @@ int main()
 
 
 	std::vector<thread> firstThreads, secondThreads, thirdThreads;
-	atomic<int> flowerCounts(0);
+	atomic<int> flowflowerCountserCounts(0);
 
 	for(int i = 0; i < ThreadNumbers; i++){
 		firstThreads.push_back(thread(firstThreadGroup, i, ref(flowerCounts)));
