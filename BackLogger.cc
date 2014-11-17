@@ -4,6 +4,7 @@
 #include <fstream>
 #include <functional>
 #include <unistd.h>
+#include <sstream>
 #include "BackLogger.h"
 
 
@@ -80,12 +81,36 @@ BackLogger::~BackLogger() {
  *      Author: keyming
  */
 
-int main()
-{
-	BackLogger log;
+
+#ifdef BACKLOGGER_SIMPLETEST.CC
+std::mutex log_mutex;
+void multithread_log(int threadId, BackLogger & log){
 	for (int i = 0; i < 10; i++){
-		log.logMsg("keyming");
+		std::string msgString;
+		std::stringstream ss;
+		ss << i;
+		ss >> msgString;
+		msgString += "keyming";
+		log_mutex.lock();
+		log.logMsg(msgString);
+		log_mutex.unlock();
 	}
 }
 
+int main()
+{
+	std::thread* threads[10];
+	BackLogger log;
+	for(int i = 0; i < 10; i++){
+		threads[i] = new std::thread(multithread_log, i, std::ref(log));
+	}
+	for(int i = 0; i < 10; i++){
+		threads[i]->join();
+	}
+
+	for(int i = 0; i < 10; i++){
+		delete threads[i];
+	}
+}
+#endif
 
