@@ -15,7 +15,7 @@
 
 using namespace std;
 
-
+#ifdef TEST_TIME_MUTEX_CC
 static timed_mutex  init_lock;
 static mutex io_lock;
 
@@ -75,7 +75,7 @@ int main()
 	}
 	std::cout << "The end." << std::endl;
 }
-
+#endif
 
 
 
