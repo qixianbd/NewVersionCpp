@@ -16,7 +16,7 @@
 using namespace std;
 typedef long long llong;
 
-#define COMPUTEMATHMT2_CC
+//#define COMPUTEMATHMT2_CC
 #ifdef COMPUTEMATHMT2_CC
 
 enum {ThreadNumbers = 1};

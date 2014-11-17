@@ -12,3 +12,7 @@ ComputeMathMT2.cc
 		compute the math result with mutithreads: result = 1^3 + 2^3 + 3^3 + 4 ^3  + 5^3 + .. + n^3    
 		each thread computes n/ThreadNumbers numbers values. 
 	
+	
+FlagSweepGCSimulator.cc:
+	add testfile FlagSweepGCSimulator.cc to simulate the simplest gc of java. 
+	简单的模拟垃圾回收时，　后台线程标记垃圾，　并且定时的进行整理的过程。　
