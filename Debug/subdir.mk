@@ -14,6 +14,7 @@ CC_SRCS += \
 ../Person.cc \
 ../Random.cc \
 ../SimpleBackTimer.cc \
+../SimpleThreadPool.cc \
 ../TestLock_Guard.cc \
 ../Test_Atomic.cc \
 ../Test_CondionalValuable.cc \
@@ -35,6 +36,7 @@ OBJS += \
 ./Person.o \
 ./Random.o \
 ./SimpleBackTimer.o \
+./SimpleThreadPool.o \
 ./TestLock_Guard.o \
 ./Test_Atomic.o \
 ./Test_CondionalValuable.o \
@@ -56,6 +58,7 @@ CC_DEPS += \
 ./Person.d \
 ./Random.d \
 ./SimpleBackTimer.d \
+./SimpleThreadPool.d \
 ./TestLock_Guard.d \
 ./Test_Atomic.d \
 ./Test_CondionalValuable.d \
