@@ -21,6 +21,7 @@ CC_SRCS += \
 ../Test_Thread_Mutex.cc \
 ../Test_Time_Mutex.cc \
 ../ThreadExecuteWithSequence.cc \
+../ThreadPoolBackTimer.cc \
 ../Utility.cc 
 
 OBJS += \
@@ -41,6 +42,7 @@ OBJS += \
 ./Test_Thread_Mutex.o \
 ./Test_Time_Mutex.o \
 ./ThreadExecuteWithSequence.o \
+./ThreadPoolBackTimer.o \
 ./Utility.o 
 
 CC_DEPS += \
@@ -61,6 +63,7 @@ CC_DEPS += \
 ./Test_Thread_Mutex.d \
 ./Test_Time_Mutex.d \
 ./ThreadExecuteWithSequence.d \
+./ThreadPoolBackTimer.d \
 ./Utility.d 
 
 
@@ -68,7 +71,7 @@ CC_DEPS += \
 %.o: ../%.cc
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -std=c++0x -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -Wl,--no-as-needed -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	g++ -std=c++0x -I/usr/local/boost -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -Wl,--no-as-needed -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

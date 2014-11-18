@@ -24,7 +24,7 @@ BackTimer::~BackTimer(){
 	backThread.join();
 }
 
-#define SIMPLEBACKTIMER_CC
+//#define SIMPLEBACKTIMER_CC
 #ifdef SIMPLEBACKTIMER_CC
 
 void print(){
