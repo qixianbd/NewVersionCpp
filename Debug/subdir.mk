@@ -13,6 +13,7 @@ CC_SRCS += \
 ../MtHashTableWithLog_Test.cc \
 ../Person.cc \
 ../Random.cc \
+../SimpleBackTimer.cc \
 ../TestLock_Guard.cc \
 ../Test_Atomic.cc \
 ../Test_CondionalValuable.cc \
@@ -32,6 +33,7 @@ OBJS += \
 ./MtHashTableWithLog_Test.o \
 ./Person.o \
 ./Random.o \
+./SimpleBackTimer.o \
 ./TestLock_Guard.o \
 ./Test_Atomic.o \
 ./Test_CondionalValuable.o \
@@ -51,6 +53,7 @@ CC_DEPS += \
 ./MtHashTableWithLog_Test.d \
 ./Person.d \
 ./Random.d \
+./SimpleBackTimer.d \
 ./TestLock_Guard.d \
 ./Test_Atomic.d \
 ./Test_CondionalValuable.d \

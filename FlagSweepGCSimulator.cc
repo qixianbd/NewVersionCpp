@@ -17,7 +17,7 @@
 #include "Random.h"
 #include "Person.h"
 
-#define FLAGSWEEPGCSIMULATOR_CC
+//#define FLAGSWEEPGCSIMULATOR_CC
 #ifdef FLAGSWEEPGCSIMULATOR_CC
 
 using namespace std;

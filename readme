@@ -16,3 +16,8 @@ ComputeMathMT2.cc
 FlagSweepGCSimulator.cc:
 	add testfile FlagSweepGCSimulator.cc to simulate the simplest gc of java. 
 	简单的模拟垃圾回收时，　后台线程标记垃圾，　并且定时的进行整理的过程。　
+	
+	
+SimpleBackTimer.cc:
+	一个简单的计时器类。　用户可以制定到达多少时间后让后台线程调用某个函数。　目前后台线程只有一个
+	The aim of the class is to let the background thread execute the task after a certain time. 
