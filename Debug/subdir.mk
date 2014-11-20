@@ -7,8 +7,10 @@ CC_SRCS += \
 ../BackLogger.cc \
 ../ComputeMathMT2.cc \
 ../ComputeMathWithMultithread.cc \
+../DeadLockExample.cc \
 ../DoubleLock.cc \
 ../FlagSweepGCSimulator.cc \
+../MReaderOneWriter.cc \
 ../MtHashTableWithLog.cc \
 ../MtHashTableWithLog_Test.cc \
 ../Person.cc \
@@ -29,8 +31,10 @@ OBJS += \
 ./BackLogger.o \
 ./ComputeMathMT2.o \
 ./ComputeMathWithMultithread.o \
+./DeadLockExample.o \
 ./DoubleLock.o \
 ./FlagSweepGCSimulator.o \
+./MReaderOneWriter.o \
 ./MtHashTableWithLog.o \
 ./MtHashTableWithLog_Test.o \
 ./Person.o \
@@ -51,8 +55,10 @@ CC_DEPS += \
 ./BackLogger.d \
 ./ComputeMathMT2.d \
 ./ComputeMathWithMultithread.d \
+./DeadLockExample.d \
 ./DoubleLock.d \
 ./FlagSweepGCSimulator.d \
+./MReaderOneWriter.d \
 ./MtHashTableWithLog.d \
 ./MtHashTableWithLog_Test.d \
 ./Person.d \
