@@ -17,17 +17,19 @@
 
 
 class BackLogger{
-private:
-	std::queue<std::string> msgQueue;
-	std::ofstream logStream;
-	bool exitSingle;
-	bool startInit;
-	std::thread backThread;
-private:
+	private:
 	std::mutex queueLock;
 	std::mutex startLock;
 	std::condition_variable_any cv;
-	std::condition_variable_any stcv;
+	//std::condition_variable_any stcv;
+
+private:
+	std::ofstream logStream;
+	std::queue<std::string> msgQueue;
+	bool exitSingle;
+	bool startInit;
+	std::thread backThread;
+
 
 
 private:

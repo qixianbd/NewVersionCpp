@@ -15,11 +15,11 @@
 #include <mutex>
 
 using namespace std;
-
+//#define DOUBLElOCK_CC
 #ifdef DOUBLElOCK_CC
+
 static mutex  init_lock;
 static mutex io_lock;
-
 static bool initable = false;
 
 void init(int id){
@@ -29,16 +29,14 @@ void init(int id){
 
 void initOnlyOnce(int threadId){
 	if(initable == false){
-		init_lock.lock();
+		lock_guard<mutex> lock(init_lock);
 		if(initable == false){
 			init(threadId);
 		}
-		init_lock.unlock();
 	}
 
-	io_lock.lock();
+	lock_guard<mutex> ouputLock(io_lock);
 	std::cout << "The thread id =  " << threadId << std::endl;
-	io_lock.unlock();
 	return ;
 }
 

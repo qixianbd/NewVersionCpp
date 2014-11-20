@@ -5,7 +5,7 @@
  *      Author: keyming
  */
 
-#define DEADLOCKEXAMPLE_CC
+//#define DEADLOCKEXAMPLE_CC
 #ifdef DEADLOCKEXAMPLE_CC
 
 #include <unistd.h>

@@ -5,6 +5,7 @@
 #include <functional>
 #include <unistd.h>
 #include <sstream>
+#include <stdlib.h>
 #include "BackLogger.h"
 
 
@@ -40,7 +41,7 @@ void BackLogger::consumeMsg() {
 
 
 BackLogger::BackLogger(std::string logFilename):
-		logStream(logFilename), exitSingle(false),
+		logStream(logFilename), msgQueue(std::queue<std::string>()), exitSingle(false),
 		startInit(false), backThread(&BackLogger::consumeMsg, this){
 
 }
@@ -81,16 +82,12 @@ BackLogger::~BackLogger() {
  *      Author: keyming
  */
 
-
-#ifdef BACKLOGGER_SIMPLETEST.CC
+//#define BACKLOGGER_SIMPLETEST_CC
+#ifdef BACKLOGGER_SIMPLETEST_CC
 std::mutex log_mutex;
 void multithread_log(int threadId, BackLogger & log){
 	for (int i = 0; i < 10; i++){
-		std::string msgString;
-		std::stringstream ss;
-		ss << i;
-		ss >> msgString;
-		msgString += "keyming";
+		std::string msgString("keyming");
 		log_mutex.lock();
 		log.logMsg(msgString);
 		log_mutex.unlock();
@@ -99,18 +96,17 @@ void multithread_log(int threadId, BackLogger & log){
 
 int main()
 {
-	std::thread* threads[10];
+	std::vector<std::thread> threads;
 	BackLogger log;
 	for(int i = 0; i < 10; i++){
-		threads[i] = new std::thread(multithread_log, i, std::ref(log));
+		log_mutex.lock();
+		threads.push_back(std::thread(multithread_log, i, std::ref(log)));
+		log_mutex.unlock();
 	}
 	for(int i = 0; i < 10; i++){
-		threads[i]->join();
+		threads[i].join();
 	}
 
-	for(int i = 0; i < 10; i++){
-		delete threads[i];
-	}
 }
 #endif
 
