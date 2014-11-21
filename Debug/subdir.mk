@@ -23,6 +23,7 @@ CC_SRCS += \
 ../Test_Thread.cc \
 ../Test_Thread_Mutex.cc \
 ../Test_Time_Mutex.cc \
+../TextString.cc \
 ../ThreadExecuteWithSequence.cc \
 ../ThreadPoolBackTimer.cc \
 ../Utility.cc 
@@ -47,6 +48,7 @@ OBJS += \
 ./Test_Thread.o \
 ./Test_Thread_Mutex.o \
 ./Test_Time_Mutex.o \
+./TextString.o \
 ./ThreadExecuteWithSequence.o \
 ./ThreadPoolBackTimer.o \
 ./Utility.o 
@@ -71,6 +73,7 @@ CC_DEPS += \
 ./Test_Thread.d \
 ./Test_Thread_Mutex.d \
 ./Test_Time_Mutex.d \
+./TextString.d \
 ./ThreadExecuteWithSequence.d \
 ./ThreadPoolBackTimer.d \
 ./Utility.d 
